@@ -1,0 +1,38 @@
+Solve Maze:
+Layer 1
+_ _ X _ X 
+X X X _ X 
+_ _ _ _ X 
+_ X X X X 
+_ X X X X 
+
+Layer 2
+X _ X _ X 
+X X X X X 
+X X X X X 
+X X X X X 
+_ X X X X 
+
+Layer 3
+X _ X _ X 
+X _ X X X 
+X _ _ _ X 
+X X X X X 
+_ X X X X 
+
+Layer 4
+X X X _ X 
+X X X X X 
+X X X _ X 
+X X X X X 
+_ X X X X 
+
+Layer 5
+X X X _ X 
+X X X _ X 
+X X X _ X 
+X X X X X 
+_ _ _ X _ 
+
+
+No Solution Exists!

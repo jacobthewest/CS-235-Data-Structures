@@ -1,0 +1,12 @@
+Insert jacob
+Count jacob
+Clear jacob
+Count jacob
+Insert rachel
+Insert kyle
+Insert dog
+Insert chancho
+Insert allTheGirlsThatHaveRejectedMe
+Insert HappyGilMOre
+Print
+Size

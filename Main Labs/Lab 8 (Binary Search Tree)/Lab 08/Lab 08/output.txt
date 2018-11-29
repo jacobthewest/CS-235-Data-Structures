@@ -1,0 +1,178 @@
+Add 10 True
+Add 5 True
+Add 15 True
+Add 3 True
+Add 13 True
+Add 1 True
+Add 11 True
+Add 2 True
+Add 12 True
+Add 7 True
+Add 17 True
+Add 9 True
+Add 19 True
+Add 8 True
+Add 18 True
+Add 0 True
+Add 20 True
+Add 4 True
+Add 14 True
+Add 6 True
+Add 16 True
+PrintBST 
+  0: 10
+  1: 5 15
+  2: 3 7 13 17
+  3: 1 4 6 9 11 14 16 19
+  4: 0 2 8 _ _ 12 18 20
+Find 
+Find 
+Find 
+Find 
+Find 
+Tree 
+Remove 10 True
+PrintBST 
+  0: 9
+  1: 5 15
+  2: 3 7 13 17
+  3: 1 4 6 8 11 14 16 19
+  4: 0 2 _ 12 18 20
+Tree 
+Remove 9 True
+PrintBST 
+  0: 8
+  1: 5 15
+  2: 3 7 13 17
+  3: 1 4 6 _ 11 14 16 19
+  4: 0 2 _ 12 18 20
+Tree 
+Remove 8 True
+PrintBST 
+  0: 7
+  1: 5 15
+  2: 3 6 13 17
+  3: 1 4 11 14 16 19
+  4: 0 2 _ 12 18 20
+Tree 
+Remove 7 True
+PrintBST 
+  0: 6
+  1: 5 15
+  2: 3 _ 13 17
+  3: 1 4 11 14 16 19
+  4: 0 2 _ 12 18 20
+Tree 
+Remove 6 True
+PrintBST 
+  0: 5
+  1: 3 15
+  2: 1 4 13 17
+  3: 0 2 11 14 16 19
+  4: _ 12 18 20
+Tree 
+Remove 5 True
+PrintBST 
+  0: 4
+  1: 3 15
+  2: 1 _ 13 17
+  3: 0 2 11 14 16 19
+  4: _ 12 18 20
+Tree 
+Remove 4 True
+PrintBST 
+  0: 3
+  1: 1 15
+  2: 0 2 13 17
+  3: 11 14 16 19
+  4: _ 12 18 20
+Tree 
+Remove 3 True
+PrintBST 
+  0: 2
+  1: 1 15
+  2: 0 _ 13 17
+  3: 11 14 16 19
+  4: _ 12 18 20
+Tree 
+Remove 2 True
+PrintBST 
+  0: 1
+  1: 0 15
+  2: 13 17
+  3: 11 14 16 19
+  4: _ 12 18 20
+Tree 
+Remove 1 True
+PrintBST 
+  0: 0
+  1: _ 15
+  2: 13 17
+  3: 11 14 16 19
+  4: _ 12 18 20
+Tree 
+Remove 0 True
+PrintBST 
+  0: 15
+  1: 13 17
+  2: 11 14 16 19
+  3: _ 12 18 20
+Tree 
+Remove 15 True
+PrintBST 
+  0: 14
+  1: 13 17
+  2: 11 _ 16 19
+  3: _ 12 18 20
+Tree 
+Remove 14 True
+PrintBST 
+  0: 13
+  1: 11 17
+  2: _ 12 16 19
+  3: 18 20
+Tree 
+Remove 13 True
+PrintBST 
+  0: 12
+  1: 11 17
+  2: 16 19
+  3: 18 20
+Tree 
+Remove 12 True
+PrintBST 
+  0: 11
+  1: _ 17
+  2: 16 19
+  3: 18 20
+Tree 
+Remove 11 True
+PrintBST 
+  0: 17
+  1: 16 19
+  2: 18 20
+Tree 
+Remove 17 True
+PrintBST 
+  0: 16
+  1: _ 19
+  2: 18 20
+Tree 
+Remove 16 True
+PrintBST 
+  0: 19
+  1: 18 20
+Tree 
+Remove 19 True
+PrintBST 
+  0: 18
+  1: _ 20
+Tree 
+Remove 18 True
+PrintBST 
+  0: 20
+Tree 
+Remove 20 True
+PrintBST  Empty
+Find 
+Tree 

@@ -1,0 +1,193 @@
+CS 235
+Info 
+Content
+Labs 
+Code Review
+Quizzes
+Help Queue
+   Lab 09 - Pokémon
+References
+pokemon.pptx
+FAQ
+Maps and Sets FAQ
+Files
+SetInterface.h | MapInterface.h
+Expand All  Collapse All 
+Description
+Welcome to the world of Pokémon! In this world, you can use special creatures to battle against each other, and the trainer with the best strategy wins. In this lab you will implement a set and a map and then use them to create a Pokémon storage and battle system.
+
+Learning Outcomes
+By completing the Pokémon Lab, you will be able to:
+
+Implement a Set.
+Implement a Hash Map.
+Understand how to iterate through a Set.
+Use Map creation and lookup to solve a variety of problems.
+Discussion
+Sets
+Sets are containers that store unique elements following a specific order. An unordered_set container stores unique elements in no particular order, which allows for fast retrieval of individual elements based on their value. In implementation of a set, the value of an element must be unique and cannot be modified once in the container (the elements are always const). Values can be inserted or removed from the container.
+
+Internally, the elements in a set are always sorted following a specific strict weak ordering criterion indicated by its internal comparison object (of type Compare). Sets are typically implemented as binary search trees.
+
+Conversely, elements in an unordered_set are not sorted in any particular order, but are organized into buckets depending on their hash values which allows fast access to individual elements directly by their values (with a constant average time complexity on average). unordered_sets are typically implemented using a linked list for each hash table index, which is referred to as bucket hashing or chaining.
+
+Maps
+Maps are associative containers that store elements formed by a combination of a key value and an associated mapped value. The types of key and mapped value may differ, and are grouped together in member type value_type.
+
+Internally, the key values of elements in a map are always sorted following a specific strict weak ordering criterion indicated by its internal comparison object (of type Compare). Maps are typically implemented as binary search trees.
+
+Conversely, he key values of elements in an unordered_map are not sorted in any particular order, but are organized into buckets depending on their hash values which allows fast access to individual elements directly by their values (with a constant average time complexity on average). unordered_maps are typically implemented using a linked list for each hash table index, which is referred to as bucket hashing or chaining.
+
+In either type of map, the mapped elements can be accessed directly by their corresponding key using the bracket operator ((operator[]). A common example of the usefulness of a map is in mapping grade letters to their respective GPA values. See below. Try to get this code to compile and mess around with it.
+
+#include <map> //contains the STL implementation of Map
+#include <string> //contains the STL string
+#include <iostream>
+int main()
+{
+   map<string, double> GPAs; //initialization of an empty map;
+   GPAs["A"] = 3.0;   // Map "A" to 3.0
+   GPAs["A"] = 4.0;   // Overwrite "A" to 4.0
+   GPAs["A-"] = 3.7;
+   GPAs["B+"] = 3.4;
+   ...
+   // Print the value mapped to "A-".
+   cout << "The GPA value for a A- is: " << GPAs["A-"];
+   return 0;
+}
+Hashing
+In computing, a hash table (hash map) is a data structure which implements an associative array abstract data type, a structure that can map keys to values. A hash table uses a hash function to compute an index into an array of buckets or slots, from which the desired value can be found. Ideally, the hash function will assign each key to a unique bucket, but most hash table designs employ an imperfect hash function, which might cause hash collisions where the hash function generates the same index for more than one key. Such collisions must be accommodated in some way. In a well-dimensioned hash table, the average cost (number of instructions) for each lookup is independent of the number of elements stored in the table. Many hash table designs also allow arbitrary insertions and deletions of key-value pairs, at (amortized) constant average cost per operation. In many situations, hash tables turn out to be on average more efficient than search trees or any other table lookup structure. For this reason, they are widely used in many kinds of computer software, particularly for associative arrays, database indexing, caches, and sets.
+
+Probing Technique: Chaining
+In the method known as chaining, each bucket is independent, and has some sort of list of entries with the same index. The time for hash table operations is the time to find the bucket (which is constant) plus the time for the list operation. In a good hash table, each bucket has zero or one entries, and sometimes two or three, but rarely more than that. Therefore, structures that are efficient in time and space for these cases are preferred.
+
+
+Probing Technique: Linear Probing
+Linear probing is a scheme in computer programming for resolving collisions in hash tables, data structures for maintaining a collection of key–value pairs and looking up the value associated with a given key. Each cell of a hash table stores a single key–value pair. When the hash function causes a collision by mapping a new key to a cell of the hash table that is already occupied by another key, linear probing searches the table for the closest following free location and inserts the new key there. Lookups are performed in the same way, by searching the table sequentially starting at the position given by the hash function, until finding a cell with a matching key or an empty cell. This method results in primary clustering, and as the cluster grows larger, the search for those items hashing within the cluster becomes less efficient.
+
+
+For a given hash value, the indices generated by linear probing are as follows:
+
+H+1,H+2,H+3,H+4,...,H+k
+Probing Technique: Quadratic Probing
+When an incoming data's hash value indicates it should be stored in an already-occupied slot or bucket. Quadratic probing operates by taking the original hash index and adding successive values of an arbitrary quadratic polynomial until an open slot is found. Quadratic probing can be a more efficient algorithm in a closed hashing table, since it better avoids the clustering problem that can occur with linear probing, although it is not immune. It also provides good memory caching because it preserves some locality of reference. An example sequence using quadratic probing is:
+
+H+12,H+22,H+32,H+42,...,H+k2
+Pokémon
+Pokémon is a series of video games developed by Game Freak and published by Nintendo as part of the Pokémon media franchise. Review the "Pokémon battles" section of this wikipedia page if you are unfamiliar with the mechanics. We will be simplifying these mechanics down for for the purpose of our lab. We will limit the number of types that a Pokémon can be to just one. Instead of Hit Points, we will use a system more closely related to a round of Rock-Paper-Scizors (heh?); whichever Pokémon uses the more effective move against the other wins. See below for a more detailed explanation.
+
+The Lab
+Lab requirements:
+Implement a Set class that inherits from the provided SetInterface.h.
+This should be the easiest part of the lab. You already created a data structure that you can "wrap" into a Set in the BST lab. Didn't do BST? You could also use a LinkedList.
+Implement an Unordered-Map class that inherits from the provided MapInterface.h.
+Use hashing for accessing data (NOT BST).
+Use chaining, linear probing, or quadratic probing for collision resolution.
+You must use a dynamically allocated array to hash onto. In a normal map implementation you'd want to dynamically grow and shrink this "table," but for simplicity we will not require it. You should make it a size that you will not need to worry about growing. 31 is the default size for this lab.
+Read in each Pokémon and store its type in a map.
+Read in each move and store its type in a map.
+Read in the type effectivities and ineffectivities and store them in maps (string to set).
+Report who wins each battle.
+Battles:
+Battles will be much simpler than they are in the actual games. Each Pokémon has a single type (fire, water, rock). Each move (attack) is a single type.
+
+Some move types are "super effective" or strong against Pokémon of certain types. For example, water is super effective against fire.
+Some move types are "not very effective" or weak against Pokémon of certain types. For example, fire is not very effective against water.
+Any move type that is neither strong nor weak against a Pokémon of a certain type is "regularly effective. You will read in tables of effectivities and ineffectivities. Any combination not found in either of the two tables is regarded as regularly effective. For example, rock is regularly effective against water because it has no advantage or disadvantage against it.
+Move types can have any number of Pokémon types that they are strong or weak against.
+In a single battle, two Pokémon are chosen and each Pokémon chooses one move to attack the other one with. Whichever Pokémon attacks with the more effective move wins the battle. If the two moves have equal effectiveness, then the battle ends in a tie. Here's an example battle:
+Charmander is a Pokémon of type fire.
+Bulbasaur is a Pokémon of type grass.
+Flamethrower is a fire type move.
+Scratch is a normal type move.
+Fire type moves are super effective against grass type Pokémon.
+Normal type moves are regularly effective against most (including fire) Pokémon types.
+In the battle, Charmander uses flamethrower and Bulbasaur uses scratch.
+Scratch is regularly effective against Charmander.
+Because Bulbasaur is a grass type, flamethrower is super effective against him.
+Because Charmander's move was stronger against Bulbasaur than Bulbasaur's move was against Charmander, Charmander wins the battle.
+All you have to do is report which Pokémon wins the battle, but feel free to report more than that if you wish.
+Extra Credit:
+Unleash the full power of the Map. In the Pokémon universe, each Pokémon trainer is given a handheld computer called a Pokédex. When pointed at a Pokémon the Pokédex reports helpful information about that Pokémon. For the extra credit section of this lab you will need to implement a Pokédex-type report of each Pokémon found in the input file. Imagine that you're a trainer going up against a certain Pokémon. Your Pokedex would tell you which move types would be best to use and which types you should avoid using against that Pokémon. You will report which move-types would be super effective against this Pokémon and which move types would be not very effective against this Pokémon. For example, if Charmander (fire type) were found in the input file, you would report that Charmander is weak against ground, water, and rock type attacks and that it is resilient to fire, grass, and ice type attacks. In order to complete this section of the lab, you will need to implement an iterator for either Set or Map. This will be very easy if you created an iterator for BST.
+
+Steps to Success:
+Step 1 - Adapt your BST class in a Set class that implements SetInterface.
+Create a little main function to test the functionality of your Set implementation.
+Step 2 - Design and implement a Map class that implements MapInterface.
+Decide which type of collision resolution you want to use.
+Create a little main function to test the functionality of your Map implementation.
+No seriously, you're going to want to test this to make sure it works before moving on.
+Step 3 - Read in move effectivities, ineffectiveties, Pokémon types, and Move types.
+Check to make sure you've correctly read in this information.
+Step 4 - Implement the battle simulation.
+For each battle, read in each Pokémon and the move that it is using.
+Then check which move is the most effective against the other Pokémon and report the winner.
+Helps and Hints
+** Code examples come from readily available, public websites **
+(ie., stackoverflow.com, cplusplus.com, quora.com, etc.)
+Destructors:
+In this lab you will need to create maps of key type: string and value type: set. If you're not careful with how you set this up, some crazy things can happen. For example, look at the following code:
+
+Map<string, Set<string>> effectiveTypes;
+while(getline(inputFile, line))
+{
+   Set<string> effectives;
+   while(line >> type)
+   {
+      effectives.insert(type)
+   }
+   effectiveTypes[baseType] = effectives;
+}
+cout << effectiveTypes;
+What is wrong with this? It's admittedly pretty hard to tell. Look at what happens to "effectives" at the end of each iteration of the outer while loop. It goes out of scope and its destructor gets called. Probably, your Set class destructs its inner BST in its destructor. Even though your map still has a reference to that Set, the nodes inside of its BST have been deleted. You will no longer be able to access any data from it!! To avoid this, you may try the following:
+Map<string, Set<string>> effectiveTypes;
+while(getline(inputFile, line))
+{
+   while(line >> type)
+   {
+      effectiveTypes[baseType].insert(type)
+   }
+}
+cout << effectiveTypes;
+This way the only reference to that Set is the one in the Map and its destructor is only called when that of the map is!
+Maps and Sets Criteria
+Use the following input and resulting output files in testing the Maps and Sets lab:
+
+Input File	Output File
+Test #3	lab09_in_03.txt	lab09_out_03.txt
+Test #4	lab09_in_04.txt	lab09_out_04.txt
+Test #5 (Bonus)	lab09_in_05.txt	lab09_out_05.txt
+No	Partial	Yes	 Lab Requirements (40 points)	Score1 = 0
+			argv[1] and argv[2] used for input / output streams respectively. 
+No execution user interaction (i.e. system("pause"); or getchr();).
+			No STL container (ie. vectors, queue, stacks, heaps, linked lists, trees, sets, or maps) are used anywhere in your Set or Map classes.
+			A template Set class is derived from the SetInterface.h file and implemented in a separate Set.h file. The Set class elements are displayed using its public toString and friend insertion member functions.
+			All template Unordered Map classes are derived from the MapInterface.h file and implemented in a separate Map.h file. The map class key-value pairs are displayed using its public toString and friend insertion member functions.
+			The Unordered Map classes use hashing to store and retrieve entries (NOT a BST). Your hash code function returns a unique enough value for strings to avoid most collisions. Linear probing, quadratic probing, or chaining (bucketing) is used for collision resolution. (lab09_in_03.txt)
+			The winner of each battle is correctly determined and displayed. (lab09_in_04.txt)
+			BONUS: Pokédex mode correctly prints out which types each Pokémon would be weak against which types it would be resilient against. (lab09_in_05.txt)
+			BONUS: The BonusHashTableSize is used for the initial dynamic key array size. When the load factor (# of elements / key array size) is greater than 75%, a new array of double the current size is created, the old keys are rehashed into the new array, and the old array is deleted.
+			VS_MEM_CHECK macro is included in main to detect memory leaks. 
+No Memory leaks are reported.
+No	Partial	Yes	 Lab Style Review (10 points)	Score2 = 0
+			Header Files
+#define header guards used to prevent multiple inclusion in all .h files. (No "#pragma once" directives.)
+Non-template .h file member function implementations are 10 or fewer lines of code.
+No memory allocations in .h files.
+			Objects and Classes
+Upper CamelCase class names.
+Member functions that don't mutate data members declared const.
+All class data members and helper functions private (getter's and setters's for private data members only as needed.)
+			Functions and Variables
+Descriptive lower camelCase function and variable names.
+Constant and #define names all capital letters.
+"Reasonable" documentation precedes function definitions.
+			Program Format
+One statement per line.
+Consistent usage of braces with 3 or 4 space indention per scope.
+One space around binary operators and other appropriate items.
+No Visual Studio compiler warnings.
+Overall
+Rating	Easy to follow, readable, organized, scaleable, well commented.
+  Excellent         Good         Average         Poor
+Total Score = 0

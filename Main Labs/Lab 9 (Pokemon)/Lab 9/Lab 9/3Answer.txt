@@ -1,0 +1,58 @@
+Pokemon:
+Charmander: fire
+Squirtle: water
+Dugtrio: ground
+Geodude: rock
+Articuno: ice
+Bulbasaur: grass
+Machoke: fighting
+Pidgeotto: flying
+Snorlax: normal
+Pikachu: electric
+
+Moves:
+flamethrower: fire
+brick_break: fighting
+razor_leaf: grass
+quick_attack: normal
+karate_chop: fighting
+rock_slide: rock
+earthquake: ground
+ice_beam: ice
+spark: electric
+water_gun: water
+body_slam: normal
+tackle: normal
+air_slash: flying
+
+Effectivities:
+normal: 
+fire: grass ice 
+rock: fire flying ice 
+flying: fighting grass 
+grass: ground rock water 
+ground: electric fire rock 
+fighting: ice normal rock 
+electric: flying water 
+ice: flying grass ground 
+water: fire ground rock 
+
+Ineffectivities:
+normal: rock 
+fire: fire rock water 
+rock: fighting ground 
+flying: electric rock 
+grass: fire flying grass 
+ground: flying grass 
+fighting: flying 
+electric: electric grass ground 
+ice: fire ice water 
+water: grass water 
+
+Battles:
+Charmander (flamethrower) vs Squirtle (water_gun): Squirtle wins!
+Snorlax (body_slam) vs Pidgeotto (air_slash): Tie!
+Bulbasaur (razor_leaf) vs Geodude (rock_slide): Bulbasaur wins!
+Pikachu (spark) vs Dugtrio (earthquake): Dugtrio wins!
+Articuno (air_slash) vs Charmander (flamethrower): Charmander wins!
+Articuno (water_gun) vs Squirtle (ice_beam): Tie!

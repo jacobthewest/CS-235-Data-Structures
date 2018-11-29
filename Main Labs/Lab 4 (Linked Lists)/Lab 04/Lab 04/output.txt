@@ -1,0 +1,47 @@
+STRING [STRING]
+insertTail Combing true
+remove Combing true
+insertTail Combing true
+insertTail Coming true
+insertTail front true
+size 3
+printList Combing Coming front
+remove front true
+size 2
+printList Combing Coming
+insertTail back true
+insertTail to true
+insertTail where true
+remove where true
+size 4
+printList Combing Coming back to
+insertTail where true
+size 5
+printList Combing Coming back to where
+insertTail you true
+insertTail started true
+insertTail is true
+insertTail not true
+insertTail the true
+insertTail same true
+insertTail as true
+insertTail never true
+insertTail leavening. true
+insertTail leaving. true
+insertTail -Terry true
+insertTail Pratchett true
+size 17
+printList Combing Coming back to where you started is not the same as never leavening. leaving. -Terry Pratchett
+remove Combing true
+remove leavening. true
+remove computerviruses false
+size 15
+printList Coming back to where you started is not the same as never leaving. -Terry Pratchett
+clear true
+size 0
+printList Empty
+clear true
+remove "string" false
+remove -Terry false
+size 0
+printList Empty

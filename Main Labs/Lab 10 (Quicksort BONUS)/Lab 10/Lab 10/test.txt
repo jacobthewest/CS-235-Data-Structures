@@ -1,0 +1,12 @@
+CreateArray 2
+Add 4
+Add 48
+Add 33
+Add 666
+Add 21
+Print
+Capacity
+Size
+Clear
+Capacity
+Size
